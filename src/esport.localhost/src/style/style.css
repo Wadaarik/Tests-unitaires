@@ -14,22 +14,22 @@ html, body {
 }
 
 body {
-  background: #0b0b0b;
+  background: #0b0b0b!important;
 }
 
 h1 {
-  font-family: "Muli", sans-serif;
-  color: #f2f2f2;
+  font-family: "Muli", sans-serif!important;
+  color: #f2f2f2!important;
 }
 
 h2, h3, h4, h5 {
-  font-family: "Allerta", sans-serif;
-  color: #f2f2f2;
+  font-family: "Allerta", sans-serif!important;
+  color: #f2f2f2!important;
 }
 
 p, a, li, span, input, ::placeholder {
-  font-family: "Libre Franklin", sans-serif;
-  color: #f2f2f2;
+  font-family: "Libre Franklin", sans-serif!important;
+  color: #f2f2f2!important;
 }
 
 /*# sourceMappingURL=style.css.map */

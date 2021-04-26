@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/style/style.css">
     <title>Dat project</title>
 </head>
@@ -10,21 +11,29 @@
 <?php
 //echo 'hello';
 ?>
+<!--
 <form action="action.php" method="post">
  <p>Nom de la team : <input type="text" name="nom" /></p>
  <p>Votre âge : <input type="text" name="age" /></p>
  <p><input type="submit" value="OK"></p>
  </form>
- <div id="metros">
+-->
+ <div id="teams">
+        <button onClick={formFunctions.getTeams()}>
+        getTeams
+        </button>
+    </div> 
+    <div id="teamsContainer">
+    </div>
+ <div id="metros" class="pt-4">
         <button onClick={formFunctions.test()}>
         createTeam
         </button>
     </div> 
-    <div id="stations">
-    </div>
+
     <div id="horaires">
     </div>
 
 </body>
-<script src="./src/script/createTeam.js"></script>
+<script src="./src/script/formFunctions.js"></script>
 </html>
