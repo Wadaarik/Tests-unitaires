@@ -62,13 +62,13 @@ class Equipe {
         $stmt = $this->conn->prepare($query);
 
         // sanitize
-        $this->nom=htmlspecialchars(strip_tags($this->nom));
-        $this->logo=htmlspecialchars(strip_tags($this->logo));
-        $this->pays=htmlspecialchars(strip_tags($this->pays));
-        $this->date_creation=htmlspecialchars(strip_tags($this->date_creation));
-        $this->link_fb=htmlspecialchars(strip_tags($this->link_fb));
+        $this->nom = htmlspecialchars(strip_tags($this->nom));
+        $this->logo = htmlspecialchars(strip_tags($this->logo));
+        $this->pays = htmlspecialchars(strip_tags($this->pays));
+        $this->date_creation = htmlspecialchars(strip_tags($this->date_creation));
+        $this->link_fb = htmlspecialchars(strip_tags($this->link_fb));
         $this->link_twitter=htmlspecialchars(strip_tags($this->link_twitter));
-        $this->link_insta=htmlspecialchars(strip_tags($this->link_insta));
+        $this->link_insta = htmlspecialchars(strip_tags($this->link_insta));
 
         // bind values
         $stmt->bindParam(":nom", $this->nom);
@@ -85,5 +85,24 @@ class Equipe {
         }
 
         return false;
+    }
+
+    function search($keywords) {
+        $query = "SELECT e.id_equipe as id, e.nom, e.logo, p.libelle as pays, p.drapeau, e.date_creation, e.link_fb, e.link_twitter, e.link_insta
+                  FROM " . $this->table_name . " e
+                  LEFT JOIN " . $this->table_pays . " p ON p.id_pays = e.pays_id_pays
+                  WHERE e.nom LIKE ?";
+
+        $stmt = $this->conn->prepare($query);
+
+        $keywords = htmlspecialchars(strip_tags($keywords));
+        $keywords = "%{$keywords}%";
+
+        $stmt->bindParam(1, $keywords);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
     }
 }
