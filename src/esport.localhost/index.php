@@ -8,21 +8,6 @@
     <title>Dat project</title>
 </head>
 <body>
-<?php
-//echo 'hello';
-?>
-<!--
-<form action="action.php" method="post">
- <p>Nom de la team : <input type="text" name="nom" /></p>
- <p>Votre âge : <input type="text" name="age" /></p>
- <p><input type="submit" value="OK"></p>
- </form>
--->
- <div id="teams">
-        <button onClick={formFunctions.getTeams()}>
-        getTeams
-        </button>
-    </div> 
     <div id="teamsContainer">
     </div>
     <div id="createTeamContainer">
