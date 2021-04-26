@@ -19,14 +19,17 @@ body {
 
 h1 {
   font-family: "Muli", sans-serif;
+  color: #f2f2f2;
 }
 
 h2, h3, h4, h5 {
   font-family: "Allerta", sans-serif;
+  color: #f2f2f2;
 }
 
 p, a, li, span, input, ::placeholder {
   font-family: "Libre Franklin", sans-serif;
+  color: #f2f2f2;
 }
 
 /*# sourceMappingURL=style.css.map */
