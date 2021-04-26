@@ -1,6 +1,7 @@
 var formFunctions = (function() {
   let interval = null;
 
+  getTeams();
   //DELETE TEAMS
   function deleteTeam(id) {
     fetch("/api/v1/equipes/delete/", {
@@ -177,7 +178,6 @@ var formFunctions = (function() {
 
   return {
     getTeams: getTeams,
-    createTeams: createTeams,
     test: test,
     createForm: createForm,
   }
