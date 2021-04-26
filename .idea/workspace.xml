@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86a05db5-55e1-46ef-9bbf-7bc574290f2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/docker-kubernete.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/esport.localhost/src/style/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/esport.localhost/api/config/config.example.php" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/esport.localhost/src/local_img/dat_project_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/esport.localhost/src/local_img/loupe.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/esport.localhost/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/esport.localhost/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/esport.localhost/src/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/esport.localhost/src/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/esport.localhost/src/style/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/esport.localhost/src/style/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/esport.localhost/src/style/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/esport.localhost/src/style/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +43,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\docker-kubernete\docker-kubernete\src\esport.localhost\src\local_img" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619431228493</updated>
-      <workItem from="1619431232466" duration="2701000" />
+      <workItem from="1619431232466" duration="9825000" />
     </task>
     <servers />
   </component>
