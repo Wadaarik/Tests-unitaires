@@ -53,4 +53,37 @@ class Equipe {
         $this->link_twitter = $row['link_twitter'];
         $this->link_insta = $row['link_insta'];
     }
+
+    function create() {
+        $query = "INSERT INTO " . $this->table_name . " (nom, logo, pays_id_pays, date_creation, link_fb, link_twitter, link_insta)
+                    VALUES (:nom, :logo, :pays, :date_creation, :link_fb, :link_twitter, :link_insta)";
+
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->nom=htmlspecialchars(strip_tags($this->nom));
+        $this->logo=htmlspecialchars(strip_tags($this->logo));
+        $this->pays=htmlspecialchars(strip_tags($this->pays));
+        $this->date_creation=htmlspecialchars(strip_tags($this->date_creation));
+        $this->link_fb=htmlspecialchars(strip_tags($this->link_fb));
+        $this->link_twitter=htmlspecialchars(strip_tags($this->link_twitter));
+        $this->link_insta=htmlspecialchars(strip_tags($this->link_insta));
+
+        // bind values
+        $stmt->bindParam(":nom", $this->nom);
+        $stmt->bindParam(":logo", $this->logo);
+        $stmt->bindParam(":pays", $this->pays);
+        $stmt->bindParam(":date_creation", $this->date_creation);
+        $stmt->bindParam(":link_fb", $this->link_fb);
+        $stmt->bindParam(":link_twitter", $this->link_twitter);
+        $stmt->bindParam(":link_insta", $this->link_insta);
+
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+
+        return false;
+    }
 }
