@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: # info concernant le deployment
+  name: mysql-express-deployment
+  labels:
+    app: mysql-express # labels permettent aux selector de s'y rattacher (voir plus bas)
+spec: # spec du deployment
+  replicas: 1 # nombre de replicas de pods qui doit être maintenu
+  selector:
+    matchLabels:
+      app: mysql-express
+  template: # plan pour les pods
+    metadata:
+      labels:
+        app: mysql-express
+    spec: # spec des pods
+      containers:
+      - name: mysql-express
+        image: mysql-express
+        ports:
+        - containerPort: 8081
+        env: # variables d'environnement nécessaires à l'app déployée
+        - name: ME_CONFIG_MYSQLDB_SERVER
+          valueFrom:
+            configMapKeyRef: # fait référence à un "ConfigMap", va piocher les variables dedans (le ConfigMap.yaml doit être déployé avant ce fichier du coup)
+              name: mysqldb-configmap # nom du confiMap déployé
+              key: database_url # valeur que l'on veut attribuer à ME_CONFIG_mysqlDB_SERVER
+        - name: ME_CONFIG_MYSQLDB_ADMINUSERNAME
+          valueFrom:
+            secretKeyRef: # fait référence à un "Secret", c'est l'équivalent d'un ConfigMap pour des variables sensibles
+              name: mysqldb-secret # nom du Secret déployé
+              key:  mysql-root-username # valeur que l'on veut attribuer à ME_CONFIG_mysqlDB_ADMINUSERNAME
+        - name: ME_CONFIG_MYSQLDB_ADMINPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysqldb-secret
+              key:  mysql-root-password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-express-service # nom du service
+spec:
+  selector:
+    apps: mysql-express # match les labels des pods définis dans Deployment
+  type: LoadBalancer # Nom qui porte à confusion, assigne le service à une adresse IP Externe, donc l'expose (External Service)
+  ports:
+    - protocol: TCP
+      port: 8081 # port du Service
+      targetPort: 8081 # port du container dans Deployment
+      nodePort: 30000 # Port des IP externes (range entre 30000-32767)
