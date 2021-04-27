@@ -115,7 +115,7 @@
         <form class="form-style-9">
             <ul>
                 <li>
-                    <input type="text" name="field1" class="field-style field-split align-left" placeholder="Nom" />
+                    <input type="text" name="field1" class="field-style field-split align-left" placeholder="Pseudo" />
                     <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" />
 
                 </li>
