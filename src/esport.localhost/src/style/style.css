@@ -14,22 +14,117 @@ html, body {
 }
 
 body {
-  background: #0b0b0b!important;
+  background: #0b0b0b;
 }
 
 h1 {
-  font-family: "Muli", sans-serif!important;
-  color: #f2f2f2!important;
+  font-family: "Muli", sans-serif;
 }
 
 h2, h3, h4, h5 {
-  font-family: "Allerta", sans-serif!important;
-  color: #f2f2f2!important;
+  font-family: "Allerta", sans-serif;
 }
 
 p, a, li, span, input, ::placeholder {
-  font-family: "Libre Franklin", sans-serif!important;
-  color: #f2f2f2!important;
+  font-family: "Libre Franklin", sans-serif;
+}
+
+header {
+  position: fixed;
+  background: #0b0b0b;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header #navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 15px 50px;
+  width: 100%;
+}
+header #navbar ul {
+  display: flex;
+  flex-direction: row;
+}
+header #navbar ul li {
+  margin: 0 15px;
+}
+header #navbar ul li a {
+  color: #f2f2f2;
+  font-size: 18px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+header #navbar ul li a:hover {
+  color: #6503a6;
+  transition: 0.2s;
+}
+header #navbar #search a svg {
+  max-width: 18px;
+  max-height: 18px;
+}
+header #navbar #search a svg path {
+  fill: #f2f2f2;
+  transition: 0.2s;
+}
+header #navbar #search a:hover path {
+  fill: #6503a6;
+  transition: 0.2s;
+}
+
+.first-v {
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background: url("../local_img/background-fv.jpg") no-repeat center;
+  background-size: cover;
+}
+.first-v #main-content {
+  display: flex;
+  flex-direction: column;
+}
+.first-v #main-content h1 {
+  color: #f2f2f2;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0;
+  z-index: 2;
+}
+.first-v #main-content h1 span {
+  color: #D90479;
+}
+.first-v #main-content h2 {
+  color: #f2f2f2;
+  font-size: 20px;
+  margin: 30px 0;
+  z-index: 2;
+}
+.first-v #main-content a {
+  padding: 10px 15px;
+  background: #6503a6;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  width: max-content;
+  box-shadow: 5px 5px #f2f2f2;
+  transition: 0.3s;
+  z-index: 2;
+}
+.first-v #main-content a:hover {
+  background: #f2f2f2;
+  color: #6503a6;
+  transition: 0.3s;
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=style.css.map */
