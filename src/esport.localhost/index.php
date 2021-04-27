@@ -8,22 +8,7 @@
     <title>Dat project</title>
 </head>
 <body>
-    <div id="teamsContainer">
-    </div>
-    <div id="createTeamContainer">
-    </div>
 
-    <div id="createTeamForm" class="pt-4">
-        <button onClick={formFunctions.createForm()}>
-        Create a new team
-        </button>
-    </div>
-
-    <div id="createTestTeam" class="pt-4">
-        <button onClick={formFunctions.test()}>
-        Add test team
-        </button>
-    </div>
 <header>
     <div id="navbar">
         <div id="logo">
@@ -85,6 +70,29 @@
         <a class="cta" href="#">Découvrir les équipes</a>
     </div>
 </div>
+
+<section id="teams">
+    <div class="title">
+        <h2>Les équipes actuelles</h2>
+        <span class="underline"></span>
+    </div>
+    <div id="teamsContainer">
+    </div>
+    <div id="createTeamContainer">
+    </div>
+    <div id="createTeamForm" class="pt-4">
+        <button onClick={formFunctions.createForm()}>
+            Create a new team
+        </button>
+    </div>
+    <div id="createTestTeam" class="pt-4">
+        <button onClick={formFunctions.test()}>
+            Add test team
+        </button>
+    </div>
+</section>
+
+
 </body>
 <script src="./src/script/formFunctions.js"></script>
 </html>

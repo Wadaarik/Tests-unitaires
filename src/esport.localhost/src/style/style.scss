@@ -34,6 +34,12 @@ h2, h3, h4, h5{
 p, a, li, span, input, ::placeholder{
   font-family: 'Libre Franklin', sans-serif;
 }
+.underline{
+  display: block;
+  background: $lightpurple;
+  height: 5px;
+  width: 150px;
+}
 
 header{
   position: fixed;
@@ -44,6 +50,7 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 5;
     #navbar{
       display: flex;
       align-items: center;
@@ -54,6 +61,7 @@ header{
         ul{
           display: flex;
           flex-direction: row;
+          list-style: none;
           li{
             margin: 0 15px;
             a{
@@ -132,6 +140,99 @@ header{
         color: $lightpurple;
         transition: 0.3s;
         box-shadow: none;
+      }
+    }
+  }
+}
+
+#teams{
+  padding: 0 50px;
+  .title{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    h2{
+      color: $white;
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+  }
+  #teamsContainer{
+    #textTeamsList{
+      display: none;
+    }
+    #teamsList{
+      margin: 20px 0;
+      list-style: none;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-between;
+      li{
+        background: $white;
+        padding: 15px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        height: 250px;
+        margin: 20px 0;
+        box-shadow: 6px 6px $lightpurple;
+        img{
+          margin: 15px 0 !important;
+        }
+      }
+    }
+  }
+
+  #createTeamForm, #createTestTeam{
+    button{
+      border: none;
+      padding: 10px 15px;
+      background: $lightpurple;
+      color: $white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      width: max-content;
+      box-shadow: 5px 5px #f2f2f2;
+      transition: 0.3s;
+      z-index: 2;
+      &:hover{
+        background: $white;
+        color: $lightpurple;
+        transition: 0.3s;
+        box-shadow: none;
+      }
+    }
+  }
+  #createTeamContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    input, select{
+      border: none;
+      padding: 15px 10px;
+      margin: 10px 0;
+    }
+    button{
+      border: none;
+      padding: 10px 15px;
+      background: #D90479;
+      color: $white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      width: max-content;
+      transition: 0.3s;
+      z-index: 2;
+      &:hover{
+        background: $white;
+        color: #D90479;
+        transition: 0.3s;
       }
     }
   }
