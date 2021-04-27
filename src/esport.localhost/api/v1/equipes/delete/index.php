@@ -18,7 +18,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $equipe->id = $data->id;
 
-if($equipe->delete()) { 
+if($equipe->delete()) {
     http_response_code(200);
     echo json_encode(array("message" => "Team was deleted."));
 } else {
