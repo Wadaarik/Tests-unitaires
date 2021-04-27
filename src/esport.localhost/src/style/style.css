@@ -11,6 +11,7 @@ html, body {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -19,10 +20,12 @@ body {
 
 h1 {
   font-family: "Trebuchet MS", sans-serif;
+  color: #f2f2f2;
 }
 
 h2, h3, h4, h5 {
   font-family: "Allerta", sans-serif;
+  color: #f2f2f2;
 }
 
 p, a, li, span, input, ::placeholder {
@@ -222,6 +225,105 @@ header #navbar #search a:hover path {
   background: #f2f2f2;
   color: #D90479;
   transition: 0.3s;
+}
+
+.second-content {
+  margin: 40px 0;
+  background-size: cover;
+  background: url("../local_img/wallpaper.gif") no-repeat fixed center;
+  width: 100vw;
+  height: 100vh;
+}
+.second-content h2 {
+  text-transform: uppercase;
+}
+.second-content .container-stream {
+  padding: 0 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+.second-content .container-stream .video-class {
+  width: 40vw;
+  height: auto;
+  margin-top: 7vh;
+}
+
+form {
+  background: #f2f2f2;
+  padding: 20px 50px;
+  margin: 20px auto;
+  box-shadow: 6px 6px #6503a6;
+}
+form ul {
+  list-style: none;
+  padding: 0;
+}
+form ul li .field-style {
+  padding: 15px 10px;
+  margin: 10px 0;
+  border: 1px solid #f2f2f2;
+  box-shadow: 1px 1px 5px #d6d6d6;
+  background: #f2f2f2;
+}
+form ul li .field-style:focus {
+  box-shadow: 0 0 5px #6503a6;
+  border: 1px solid #6503a6;
+}
+form ul li .field-full {
+  width: 100%;
+}
+form ul li textarea {
+  width: 100%;
+  height: 100px;
+}
+form ul li button {
+  border: none;
+  padding: 10px 15px;
+  background: #D90479;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  width: max-content;
+  transition: 0.3s;
+  z-index: 2;
+}
+form ul li button:hover {
+  background: #d6d6d6;
+  color: #D90479;
+  transition: 0.3s;
+}
+
+.contact-container {
+  margin: 20px 0;
+  width: 100vw;
+  height: 100vh;
+}
+.contact-container .contact-us {
+  padding: 0 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  height: 100vh;
+  margin: 0 auto;
+}
+.contact-container .contact-us h2 {
+  text-transform: uppercase;
+}
+.contact-container .contact-us p {
+  margin: 20px 0;
+  color: #f2f2f2;
+}
+
+footer {
+  height: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */

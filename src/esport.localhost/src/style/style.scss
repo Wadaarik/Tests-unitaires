@@ -21,15 +21,18 @@ html, body{
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body{
   background: $dark;
 }
 h1{
   font-family: 'Trebuchet MS', sans-serif;
+  color: $white;
 }
 h2, h3, h4, h5{
   font-family: 'Allerta', sans-serif;
+  color: $white;
 }
 p, a, li, span, input, ::placeholder{
   font-family: 'Libre Franklin', sans-serif;
@@ -236,4 +239,104 @@ header{
       }
     }
   }
+}
+
+.second-content{
+  margin: 40px 0;
+  background-size: cover;
+  background: url("../local_img/wallpaper.gif") no-repeat fixed center;
+  width: 100vw;
+  height: 100vh;
+  h2{
+    text-transform: uppercase;
+  }
+  .container-stream{
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    margin: 0 auto;
+    .video-class{
+      width: 40vw;
+      height: auto;
+      margin-top: 7vh;
+    }
+  }
+}
+
+form{
+  background: $white;
+  padding: 20px 50px;
+  margin: 20px auto;
+  box-shadow: 6px 6px $lightpurple;
+  ul{
+    list-style:none;
+    padding: 0;
+    li{
+      .field-style{
+        padding: 15px 10px;
+        margin: 10px 0;
+        border: 1px solid $white;
+        box-shadow: 1px 1px 5px #d6d6d6;
+        background: $white;
+          &:focus{
+            box-shadow: 0 0 5px  $lightpurple;
+            border:1px solid  $lightpurple;
+          }
+      }
+      .field-full{
+        width: 100%;
+      }
+      textarea{
+         width: 100%;
+         height: 100px;
+      }
+      button{
+        border: none;
+        padding: 10px 15px;
+        background: #D90479;
+        color: $white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        width: max-content;
+        transition: 0.3s;
+        z-index: 2;
+        &:hover{
+          background: #d6d6d6;
+          color: #D90479;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+}
+
+.contact-container{
+  margin: 20px 0;
+  width: 100vw;
+  height: 100vh;
+  .contact-us {
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    height: 100vh;
+    margin: 0 auto;
+    h2{
+      text-transform: uppercase;
+    }
+    p{
+      margin: 20px 0;
+      color: $white;
+    }
+  }
+}
+footer{
+  height: 50px;
 }

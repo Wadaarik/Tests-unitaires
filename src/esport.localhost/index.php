@@ -15,9 +15,9 @@
             <img src="./src/local_img/dat_project_logo.png" width="50" alt="logo dat project">
         </div>
         <ul>
-            <li><a href="#">Dat project</a></li>
-            <li><a href="#">Les Equipes</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#main-content">Dat project</a></li>
+            <li><a href="#teams">Les Equipes</a></li>
+            <li><a href="#contact-container">Contact</a></li>
         </ul>
         <div id="search">
             <a href="#">
@@ -67,7 +67,7 @@
     <div id="main-content">
         <h1>Le top des meilleures <br/>équipes <span>E-sport</span></h1>
         <h2>Les meilleures équipes E-sport en un seul clic...</h2>
-        <a class="cta" href="#">Découvrir les équipes</a>
+        <a class="cta" href="#teams">Découvrir les équipes</a>
     </div>
 </div>
 
@@ -92,7 +92,51 @@
     </div>
 </section>
 
+<div class="second-content">
+    <div class="container-stream">
+        <div class="title">
+            <h2>Retrouvez les Lives de notre Equipe<h2>
+        </div>
+            <h4>Si vous le souhaitez vous pouvez suivre nos joueurs directement depuis notre site internet. <br>C'est la meilleur manière de soutenir l'équipe...</h4>
+            <a href="#">
+                <img class="video-class" src="./src/local_img/video.png" alt="">
+            </a>
+    </div>
+</div>
+<div id="contact-container" class="contact-container">
+    <div class="contact-us">
+        <div class="title">
+            <h2>Contactez-nous</h2>
+            <span class="underline"></span>
+        </div>
+        <p>Avoir une communication ouverte est l’une des valeurs principales de notre marque. <br>
+            Vous pouvez également nous contacter par email en remplissant le formulaire ci-dessous.
+        </p>
+        <form class="form-style-9">
+            <ul>
+                <li>
+                    <input type="text" name="field1" class="field-style field-split align-left" placeholder="Pseudo" />
+                    <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" />
 
+                </li>
+                <li>
+                    <input type="text" name="field3" class="field-style field-split align-left" placeholder="Téléphone" />
+                    <input type="url" name="field4" class="field-style field-split align-right" placeholder="Equipe" />
+                </li>
+                <li>
+                    <input type="text" name="field3" class="field-style field-full align-none" placeholder="Objet" />
+                </li>
+                <li>
+                    <textarea name="field5" class="field-style" placeholder="Message"></textarea>
+                </li>
+                <li>
+                    <button>Envoyer</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+<footer></footer>
 </body>
 <script src="./src/script/formFunctions.js"></script>
 </html>
