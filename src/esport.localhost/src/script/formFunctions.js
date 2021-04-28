@@ -71,8 +71,10 @@ var formFunctions = (function() {
           getTeams()
         }, 30000);
       }
+      return 'ok';
     } catch (err) {
       console.log(err);
+      return 'ko'
     }
   }
 
