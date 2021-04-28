@@ -1,3 +1,50 @@
+<?php
+if (isset($_POST['submit'])){
+    $nickname = htmlspecialchars($_POST['pseudo']);
+    $email = htmlspecialchars($_POST['email']);
+    $phone = htmlspecialchars($_POST['phone']);
+    $team = htmlspecialchars($_POST['team']);
+    $object = htmlspecialchars($_POST['object']);
+    $msg = htmlspecialchars($_POST['message']);
+
+    if (empty($nickname) || empty($email) || empty($phone) || empty($team) || empty($object) || empty($msg)){
+        header('location: ?error=2');
+    }else if (!isset($_POST['contact_check'])){
+        header('location: ?error=1');
+    }else{
+        foreach ($_POST['contact_check'] as $value){
+            $to = 'johndoe@mail.com';
+            $subject = 'DAT PROJECT | Nouvelle demande de contact';
+            $from = $email;
+
+            // Compose a simple HTML email message
+            $message = '<html lang="fr"><body>';
+            $message .= '<h1 style="color:#D90479;">Nouvelle demande de contact !</h1>';
+            $message .= '<p style="color:#0d0d0d;font-size:18px;">Nom : <strong>'.$nickname.'</strong></p>';
+            $message .= '<p style="color:#0d0d0d;font-size:18px;">Mail : <strong>'.$email.'</strong></p>';
+            $message .= '<p style="color:#0d0d0d;font-size:18px;">Téléphone : <strong>'.$phone.'</strong></p>';
+            $message .= '<p style="color:#0d0d0d;font-size:18px;">Equipe : <strong>'.$team.'</strong></p>';
+            $message .= '<p style="color:#0d0d0d;font-size:18px;">Demande : <strong>'.$object.'</strong></p>';
+            $message .= '<p style="color:#0d0d0d;font-size:18px;">Description : <strong>'.$msg.'</strong></p>';
+            $message .= '</body></html>';
+
+
+            $headers = "From : '".$from."'\r\n";
+            $headers .= "Reply-To : mail.com\r\n";
+            $headers .= "Content-type : text/html\r\n";
+
+//            var_dump(mail($to, $subject, $message, $headers));
+
+            mail($to, $subject, $message, $headers);
+
+            header('location: ?success=1');
+        }
+    }
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -112,31 +159,47 @@
         <p>Avoir une communication ouverte est l’une des valeurs principales de notre marque. <br>
             Vous pouvez également nous contacter par email en remplissant le formulaire ci-dessous.
         </p>
-        <form class="form-style-9">
+
+        <?php
+        if (isset($_GET['error'])){
+            $err_check = $_GET['error'];
+            if ($err_check == 1){
+                echo '<span class="alert alert-danger" role="alert">Merci d\'accepter la politique de confidentialité pour envoyer votre message.</span>';
+            }elseif ($err_check == 2){
+                echo '<span class="alert alert-danger" role="alert">Merci de compléter tous les champs.</span>';
+            }
+        }elseif (isset($_GET['success'])){
+            echo '<span class="alert alert-success" role="alert">Votre message a été envoyé, nous vous répondrons dans les plus brefs délais.</span>';
+        }
+        ?>
+        <form method="post" action="index.php" class="form-style-9">
             <ul>
                 <li>
-                    <input type="text" name="field1" class="field-style field-split align-left" placeholder="Pseudo" />
-                    <input type="email" name="field2" class="field-style field-split align-right" placeholder="Email" />
+                    <input type="text" name="pseudo" class="field-style field-split align-left" placeholder="Pseudo" required>
+                    <input type="email" name="email" class="field-style field-split align-right" placeholder="Email" required>
 
                 </li>
                 <li>
-                    <input type="text" name="field3" class="field-style field-split align-left" placeholder="Téléphone" />
-                    <input type="url" name="field4" class="field-style field-split align-right" placeholder="Equipe" />
+                    <input type="tel" name="phone" class="field-style field-split align-left" placeholder="Téléphone" required>
+                    <input type="text" name="team" class="field-style field-split align-right" placeholder="Equipe">
                 </li>
                 <li>
-                    <input type="text" name="field3" class="field-style field-full align-none" placeholder="Objet" />
+                    <input type="text" name="object" class="field-style field-full align-none" placeholder="Objet" required>
                 </li>
                 <li>
-                    <textarea name="field5" class="field-style" placeholder="Message"></textarea>
+                    <textarea name="message" class="field-style" placeholder="Message" required></textarea>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <input type="checkbox" name="contact_check[]" id="contact_check" required>
+                    <small>Merci d'accepter la politique de confidentialité.</small>
                 </li>
                 <li>
-                    <button>Envoyer</button>
+                    <input type="submit" class="submit" name="submit" value="Envoyer">
                 </li>
             </ul>
         </form>
     </div>
 </div>
-<footer></footer>
 </body>
 <script src="./src/script/formFunctions.js"></script>
 </html>
