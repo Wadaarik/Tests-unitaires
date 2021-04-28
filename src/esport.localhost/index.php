@@ -129,12 +129,12 @@ if (isset($_POST['submit'])){
     </div>
     <div id="createTeamForm" class="pt-4">
         <button onClick={formFunctions.createForm()}>
-            Create a new team
+            Créer une nouvelle équipe
         </button>
     </div>
     <div id="createTestTeam" class="pt-4">
         <button onClick={formFunctions.test()}>
-            Add test team
+            Ajouter une équipe test
         </button>
     </div>
 </section>
