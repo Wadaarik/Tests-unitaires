@@ -76,8 +76,10 @@ var formFunctions = (function () {
 
         return results.length > 0;
       }
+      return 'ok';
     } catch (err) {
       console.log(err);
+      return 'ko'
     }
   }
 
@@ -157,16 +159,14 @@ var formFunctions = (function () {
       link_twitter: "twitter/compte",
       link_insta: "insta/compte",
     };
-    fetch("/api/v1/equipes/create/", {
+    return fetch("/api/v1/equipes/create/", {
       method: "POST",
       body: JSON.stringify(data)
-    }).then(res => {
-      getTeams();
-      console.log("Request complete! response:", res);
-      result = 'ok';
-    });
-    console.log(result)
-    return result;
+    })
+    .then((response) => {
+      return response;
+    })
+    .catch(error => console.warn(error));
   }
 
   // CREATE TEST TEAM
@@ -213,6 +213,7 @@ var formFunctions = (function () {
     getTeams: getTeams,
     test: test,
     createForm: createForm,
+    createTeams: createTeams,
   }
 })();
 
