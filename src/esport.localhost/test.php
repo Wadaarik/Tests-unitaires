@@ -100,5 +100,14 @@ if (isset($_POST['submit'])){
             done();
         })
     });
+
+
+    QUnit.test("createForm test", assert => {
+        let btn = document.createElement("button");
+        btn.innerHTML = "Add team";
+        let res = formFunctions.createForm();
+
+        assert.equal(res.toString(), btn.toString(), "createForm results");
+    });
 </script>
 </html>

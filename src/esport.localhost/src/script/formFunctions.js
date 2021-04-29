@@ -11,7 +11,6 @@ var formFunctions = (function () {
       })
     }).then(res => {
       getTeams();
-      console.log("Request complete! response:", res);
     });
   }
 
@@ -72,10 +71,8 @@ var formFunctions = (function () {
         interval = setInterval(function () {
           getTeams()
         }, 30000);
-
-
-        return results.length > 0;
       }
+      return 'ok';
     } catch (err) {
       console.log(err);
       return 'ko'
@@ -83,7 +80,7 @@ var formFunctions = (function () {
   }
 
   async function createCountrySelect(element) {
-    let response = await fetch(`/api/v1/pays/getall/`);
+    let response = await fetch("/api/v1/pays/getall/" );
     try {
       let res = await response.json();
       let results = await res.records;
@@ -184,25 +181,6 @@ var formFunctions = (function () {
       console.log("Request complete! response:", res);
     });
   }
-
-  // ---------- UNIT TESTS ----------
-  QUnit.test("getTeams test", assert => {
-    const done = assert.async();
-    getTeams()
-      .then(function (result) {
-        assert.strictEqual(result, true, "getTeams results");
-        done();
-      })
-
-  });
-
-  QUnit.test("createForm test", assert => {
-    let btn = document.createElement("button");
-    btn.innerHTML = "Add team";
-    let res = createForm();
-
-    assert.equal(res.toString(), btn.toString(), "createForm results");
-  });
 
   // ----------------------------------
   return {

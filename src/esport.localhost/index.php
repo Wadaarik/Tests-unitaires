@@ -52,7 +52,6 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/style/style.css">
-    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.15.0.css">
     <title>Dat project</title>
 </head>
 <style>
@@ -209,18 +208,6 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </div>
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
-    <script src="https://code.jquery.com/qunit/qunit-2.15.0.js"></script>
 </body>
 <script src="./src/script/formFunctions.js"></script>
-<script>
-    function fetchDouble(num, callback) {
-        const double = num * 2;
-        callback(double);
-    }
-
-    
-</script>
-
 </html>
