@@ -88,7 +88,15 @@ if (isset($_POST['submit'])){
     QUnit.test( "async getTeams", assert => {
         const done = assert.async();
         formFunctions.getTeams().then(function(result) {
-            assert.strictEqual(result, 'ok', "getTeams oks");
+            assert.strictEqual(result, 'ok', "getTeams ok");
+            done();
+        })
+    });
+
+    QUnit.test( "async createTeams", assert => {
+        const done = assert.async();
+        formFunctions.createTeams('name', 'logo.png', 1, '2021').then(function(response) {
+            assert.strictEqual(response.status, 201, "createTeams ok");
             done();
         })
     });
