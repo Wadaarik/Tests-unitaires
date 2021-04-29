@@ -76,7 +76,6 @@ var formFunctions = (function () {
 
         return results.length > 0;
       }
-      return 'ok';
     } catch (err) {
       console.log(err);
       return 'ko'
@@ -142,14 +141,11 @@ var formFunctions = (function () {
     });
     createTeamForm.appendChild(btn);
 
-    console.log("createForm : ", btn)
-
     return btn;
   }
 
   // CREATE NEW TEAM
   function createTeams(nom, logo, pays, date_creation) {
-    let result = 'ko';
     let data = {
       nom,
       logo,

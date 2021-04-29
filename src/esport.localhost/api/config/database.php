@@ -1,27 +1,32 @@
 <?php
 
 
-class Database {
+class Database
+{
     private $host;
     private $db_name;
     private $username;
-    private $password ;
+    private $password;
     public $conn;
 
-    public function __construct() {
-        $this->host = 'mysql';
-        $this->db_name = 'api';
-        $this->username = 'root';
-        $this->password = 'root';
+    public function __construct()
+    {
+        include 'config.php';
+
+        $this->host = $config['host'];
+        $this->db_name = $config['db_name'];
+        $this->username = $config['username'];
+        $this->password = $config['password'];
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
 
-        try{
+        try {
             $this->conn = new PDO("mysql:host=" . $this->host . ";port=3307;dbname=" . $this->db_name, $this->username, $this->password);
             $this->conn->exec("set names utf8");
-        }catch(PDOException $exception){
+        } catch (PDOException $exception) {
             echo "Connection error: " . $exception->getMessage();
         }
 
