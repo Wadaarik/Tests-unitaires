@@ -1,4 +1,4 @@
-var formFunctions = (function() {
+var formFunctions = (function () {
   let interval = null;
 
   getTeams();
@@ -25,6 +25,8 @@ var formFunctions = (function() {
     try {
       let res = await response.json();
       let results = await res.records;
+
+
       if (results) {
         while (teams.firstChild) {
           teams.removeChild(teams.lastChild);
@@ -57,45 +59,48 @@ var formFunctions = (function() {
           country.setAttribute("alt", `${results[i].nom}`);
           country.setAttribute("style", "margin: 0 10px");
           li.appendChild(country);
-  
+
           var deleteCross = document.createElement("P");
           deleteCross.setAttribute("style", "color: red!important; display: contents!important; cursor: pointer!important");
           var id = results[i].id;
-          deleteCross.addEventListener('click', function() {
+          deleteCross.addEventListener('click', function () {
             deleteTeam(id);
           });
           deleteCross.innerText = `X`;
           li.appendChild(deleteCross);
         }
-        interval = setInterval(function() {
+        interval = setInterval(function () {
           getTeams()
         }, 30000);
+
+
+        return results.length > 0;
       }
     } catch (err) {
       console.log(err);
     }
   }
 
-  async function createCountrySelect(element){
-       let response = await fetch(`/api/v1/pays/getall/`);
-       try {
-        let res = await response.json();
-        let results = await res.records;
-           if(results){
-              for (var i = 0; i < results.length; i++) {
-                        var option = document.createElement("option");
-                        option.value = results[i].id;
-                        option.text = results[i].libelle;
-                        element.appendChild(option);
-                    }
-              }
-       }
-       catch (err) {
-           console.log(err);
-       }
+  async function createCountrySelect(element) {
+    let response = await fetch(`/api/v1/pays/getall/`);
+    try {
+      let res = await response.json();
+      let results = await res.records;
+      if (results) {
+        for (var i = 0; i < results.length; i++) {
+          var option = document.createElement("option");
+          option.value = results[i].id;
+          option.text = results[i].libelle;
+          element.appendChild(option);
+        }
+      }
+    }
+    catch (err) {
+      console.log("err", err);
+    }
   }
 
-  function createForm(){
+  function createForm() {
     var createTeamForm = document.getElementById('createTeamContainer');
     while (createTeamForm.firstChild) {
       createTeamForm.removeChild(createTeamForm.lastChild);
@@ -104,40 +109,45 @@ var formFunctions = (function() {
     var selectList = document.createElement("select");
     createCountrySelect(selectList);
 
-    var f = document.createElement("input"); 
-    f.setAttribute('type',"text");
-    f.setAttribute('id',"teamName");
-    f.setAttribute('name',"Name");
-    f.setAttribute('placeholder',"Name");
-    
-    
-    var i = document.createElement("input"); 
-    i.setAttribute('type',"text");
-    f.setAttribute('id',"teamLogo");
-    i.setAttribute('name',"logo");
-    i.setAttribute('placeholder',"Logo");
+    var f = document.createElement("input");
+    f.setAttribute('type', "text");
+    f.setAttribute('id', "teamName");
+    f.setAttribute('name', "Name");
+    f.setAttribute('placeholder', "Name");
 
-    var d = document.createElement("input"); 
-    d.setAttribute('type',"text");
-    f.setAttribute('id',"teamDate");
-    d.setAttribute('name',"date");
-    d.setAttribute('placeholder',"Date");
+
+    var i = document.createElement("input");
+    i.setAttribute('type', "text");
+    f.setAttribute('id', "teamLogo");
+    i.setAttribute('name', "logo");
+    i.setAttribute('placeholder', "Logo");
+
+    var d = document.createElement("input");
+    d.setAttribute('type', "text");
+    f.setAttribute('id', "teamDate");
+    d.setAttribute('name', "date");
+    d.setAttribute('placeholder', "Date");
 
     createTeamForm.appendChild(f);
     createTeamForm.appendChild(i);
     createTeamForm.appendChild(selectList);
     createTeamForm.appendChild(d);
 
-    var btn = document.createElement("BUTTON");  
-    btn.innerHTML = "Add team";     
-    btn.addEventListener('click', function() {
+    var btn = document.createElement("BUTTON");
+    btn.innerHTML = "Add team";
+    btn.addEventListener('click', function () {
       createTeams(f.value, i.value, selectList.value, d.value);
     });
-    createTeamForm.appendChild(btn);  
+    createTeamForm.appendChild(btn);
+
+    console.log("createForm : ", btn)
+
+    return btn;
   }
 
   // CREATE NEW TEAM
   function createTeams(nom, logo, pays, date_creation) {
+    let result = 'ko';
     let data = {
       nom,
       logo,
@@ -153,7 +163,10 @@ var formFunctions = (function() {
     }).then(res => {
       getTeams();
       console.log("Request complete! response:", res);
+      result = 'ok';
     });
+    console.log(result)
+    return result;
   }
 
   // CREATE TEST TEAM
@@ -176,9 +189,30 @@ var formFunctions = (function() {
     });
   }
 
+  // ---------- UNIT TESTS ----------
+  QUnit.test("getTeams test", assert => {
+    const done = assert.async();
+    getTeams()
+      .then(function (result) {
+        assert.strictEqual(result, true, "getTeams results");
+        done();
+      })
+
+  });
+
+  QUnit.test("createForm test", assert => {
+    let btn = document.createElement("button");
+    btn.innerHTML = "Add team";
+    let res = createForm();
+
+    assert.equal(res.toString(), btn.toString(), "createForm results");
+  });
+
+  // ----------------------------------
   return {
     getTeams: getTeams,
     test: test,
     createForm: createForm,
   }
 })();
+
