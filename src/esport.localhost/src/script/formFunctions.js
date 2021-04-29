@@ -176,12 +176,13 @@ var formFunctions = (function () {
       link_twitter: "twitter/compte",
       link_insta: "insta/compte",
     };
-    fetch("/api/v1/equipes/create/", {
+    return fetch("/api/v1/equipes/create/", {
       method: "POST",
       body: JSON.stringify(data)
     }).then(res => {
       getTeams();
       console.log("Request complete! response:", res);
+      return res;
     });
   }
 

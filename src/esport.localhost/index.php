@@ -55,13 +55,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.15.0.css">
     <title>Dat project</title>
 </head>
-<style>
-    #qunit {
-        z-index: 1000;
-        margin-top: 100px;
-    }
-</style>
-
 <body>
 
     <header>
@@ -209,9 +202,6 @@ if (isset($_POST['submit'])) {
             </form>
         </div>
     </div>
-    <div id="qunit"></div>
-    <div id="qunit-fixture"></div>
-    <script src="https://code.jquery.com/qunit/qunit-2.15.0.js"></script>
 </body>
 <script src="./src/script/formFunctions.js"></script>
 

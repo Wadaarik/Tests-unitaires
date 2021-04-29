@@ -108,5 +108,14 @@ if (isset($_POST['submit'])){
 
     assert.equal(res.toString(), btn.toString(), "createForm results");
   });
+
+
+  QUnit.test( "async test function", assert => {
+        const done = assert.async();
+        formFunctions.test().then(function(response) {
+            assert.strictEqual(response.status, 201, "test function ok");
+            done();
+        })
+    });
 </script>
 </html>
