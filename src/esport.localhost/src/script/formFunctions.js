@@ -11,7 +11,6 @@ var formFunctions = (function () {
       })
     }).then(res => {
       getTeams();
-      console.log("Request complete! response:", res);
     });
   }
 
@@ -72,10 +71,8 @@ var formFunctions = (function () {
         interval = setInterval(function () {
           getTeams()
         }, 30000);
-
-
-        return 'ok';
       }
+      return 'ok';
     } catch (err) {
       console.log(err);
       return 'ko'
@@ -83,7 +80,7 @@ var formFunctions = (function () {
   }
 
   async function createCountrySelect(element) {
-    let response = await fetch(`/api/v1/pays/getall/`);
+    let response = await fetch("/api/v1/pays/getall/" );
     try {
       let res = await response.json();
       let results = await res.records;
@@ -186,6 +183,7 @@ var formFunctions = (function () {
     });
   }
 
+  // ----------------------------------
   return {
     getTeams: getTeams,
     test: test,

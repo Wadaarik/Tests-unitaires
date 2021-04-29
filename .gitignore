@@ -1,1 +1,4 @@
 .idea/
+config-nginx/default.conf
+docker-compose.yml
+src/esport.localhost/api/config/database.php

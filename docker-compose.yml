@@ -5,7 +5,7 @@ services:
     hostname: cont_nginx2
     build: ./containers/nginx
     ports:
-      - '81:81'
+      - '80:80'
     networks:
       - net-serv
     volumes:
@@ -24,10 +24,10 @@ services:
     hostname: cont_mysql2
     build: ./containers/mysql
     ports:
-      - '3307:3307'
+      - '3306:3306'
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_TCP_PORT=3307
+#      - MYSQL_TCP_PORT=3307
     networks:
       - net-serv
 
