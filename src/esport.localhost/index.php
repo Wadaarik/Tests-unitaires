@@ -214,13 +214,5 @@ if (isset($_POST['submit'])) {
     <script src="https://code.jquery.com/qunit/qunit-2.15.0.js"></script>
 </body>
 <script src="./src/script/formFunctions.js"></script>
-<script>
-    function fetchDouble(num, callback) {
-        const double = num * 2;
-        callback(double);
-    }
-
-    
-</script>
 
 </html>

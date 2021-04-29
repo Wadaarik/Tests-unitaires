@@ -74,7 +74,7 @@ var formFunctions = (function () {
         }, 30000);
 
 
-        return results.length > 0;
+        return 'ok';
       }
     } catch (err) {
       console.log(err);
@@ -185,26 +185,6 @@ var formFunctions = (function () {
     });
   }
 
-  // ---------- UNIT TESTS ----------
-  QUnit.test("getTeams test", assert => {
-    const done = assert.async();
-    getTeams()
-      .then(function (result) {
-        assert.strictEqual(result, true, "getTeams results");
-        done();
-      })
-
-  });
-
-  QUnit.test("createForm test", assert => {
-    let btn = document.createElement("button");
-    btn.innerHTML = "Add team";
-    let res = createForm();
-
-    assert.equal(res.toString(), btn.toString(), "createForm results");
-  });
-
-  // ----------------------------------
   return {
     getTeams: getTeams,
     test: test,
